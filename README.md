@@ -44,7 +44,7 @@ curl --location --request POST 'https://xxxxxxxxxx.execute-api.localhost.localst
 
 *Correct Invocation*
 ```
-curl --location --request POST 'https://k688jzniq2.execute-api.localhost.localstack.cloud:4566/v1/auth' \
+curl --location --request POST 'https://xxxxxxxxxx.execute-api.localhost.localstack.cloud:4566/v1/auth' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "username": "obi",
