@@ -1,14 +1,53 @@
-# Welcome to your CDK TypeScript project
+# Final Assignment
 
-This is a blank project for CDK development with TypeScript.
-
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+You can find the project in the *`dev`* branch
 
 ## Useful commands
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+Before deploying the cdk app make sure to compile the lambda function via the following command
+
+* `npm run build:lite` inside the lambda function and make sure to go back to the main folder before starting to deploy.
+
+Alternatively you can run directly the command
+
+* `cd lambda && npm run build:lite && cd ..`
+
+## Useful Exmaple Invocations
+
+*Empty Body*
+
+```
+curl --location --request POST 'https://xxxxxxxxxx.execute-api.localhost.localstack.cloud:4566/v1/auth' \
+--data-raw ''
+```
+
+*Missing Password Request*
+
+```
+curl --location --request POST 'https://xxxxxxxxxx.execute-api.localhost.localstack.cloud:4566/v1/auth' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "username": "obi"
+}'
+```
+
+*Incorrect Username/Password*
+
+```
+curl --location --request POST 'https://xxxxxxxxxx.execute-api.localhost.localstack.cloud:4566/v1/auth' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "username": "obi",
+    "password": "obi"
+}'
+```
+
+*Correct Invocation*
+```
+curl --location --request POST 'https://k688jzniq2.execute-api.localhost.localstack.cloud:4566/v1/auth' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "username": "obi",
+    "password": "kenobi"
+}'
+```
